@@ -7,6 +7,7 @@ from tkinter import messagebox
 from tkinter import ttk
 import backend_functions
 from getpass import getpass
+import time
 
 # ============== Global Variables ==================
 
@@ -79,6 +80,7 @@ def viewAllData():
 def exportData():
     backend_functions.export_all()
 
+
 # ===================== FrontEnd / Window Configuration =====================
 
 
@@ -99,6 +101,9 @@ scalerValue = StringVar()
 
 
 label_appname = Label(window, text="Daily Time Tracker", font=("Times", 20), fg=textColor, bg=backgroundColor).place(relx=0.6, rely=0.15, anchor='se')
+Time = time.strftime("%a: %d/%m/%Y")
+Time = Label(window, text=Time, font=("Times", 20), fg=textColor, bg=backgroundColor).place(relx=0.9, rely=0.15, anchor='se')
+
 
 
 label_task = Label(window, text="Task", font=("Times", 15), fg=textColor, bg=backgroundColor).place(relx=0.1, rely=0.35, anchor='se')
