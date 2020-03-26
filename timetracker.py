@@ -33,9 +33,9 @@ def clear():
 
 def addData():
     if(len(task.get()) !=0):
-        backend_functions.add_entry(task.get(), start.get(), end.get(), note.get())
+        backend_functions.add_entry(start.get(), end.get(), task.get(), note.get())
         listbox.delete(0,END)
-        listbox.insert(END, (task.get(), start.get(), end.get(), note.get()))
+        listbox.insert(END, (start.get(), end.get(), task.get(), note.get()))
     clear()
     viewAllData()
 

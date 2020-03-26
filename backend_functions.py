@@ -3,14 +3,14 @@ import sqlite3
 def connect():
     conn=sqlite3.connect("storage.db")
     cur=conn.cursor()
-    cur.execute("CREATE TABLE IF NOT EXISTS storage (id INTEGER PRIMARY KEY, task text,start text,end text,note text);")
+    cur.execute("CREATE TABLE IF NOT EXISTS storage (id INTEGER PRIMARY KEY, start text, end text, task text, note text);")
     conn.commit()
     conn.close
 
-def add_entry(task, start, end, note):
+def add_entry(start, end, task, note):
     conn=sqlite3.connect("storage.db")
     cur=conn.cursor()
-    cur.execute("INSERT INTO storage VALUES (NULL, ?, ?, ?, ?)",(task, start, end, note))
+    cur.execute("INSERT INTO storage VALUES (NULL, ?, ?, ?, ?)",(start, end, task, note))
     conn.commit()
     conn.close
 
