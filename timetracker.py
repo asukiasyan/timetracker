@@ -80,6 +80,10 @@ def viewAllData():
 def exportData():
     backend_functions.export_all()
 
+def closeWindow():
+    backend_functions.export_all()
+    window.destroy()
+
 
 # ===================== FrontEnd / Window Configuration =====================
 
@@ -90,6 +94,7 @@ window.geometry("800x400")
 window.title("TimeTracker")
 window.config(bg=backgroundColor)
 window.resizable(False, False)
+window.protocol('WM_DELETE_WINDOW', closeWindow)
 
 task = StringVar()
 start = StringVar()

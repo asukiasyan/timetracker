@@ -1,4 +1,5 @@
 import sqlite3
+import time
 
 def connect():
     conn=sqlite3.connect("storage.db")
@@ -47,7 +48,8 @@ def show_all():
     return rows
 
 def export_all():
-    with open('report.csv', 'w+') as write_file:
+    filename = time.strftime("%d_%m_%Y.csv")
+    with open(filename, 'w+') as write_file:
         conn = sqlite3.connect("storage.db")
         cur = conn.cursor()
         for row in cur.execute('SELECT * FROM storage'):
