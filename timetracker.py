@@ -102,7 +102,7 @@ scalerValue = StringVar()
 
 
 
-label_appname = Label(window, text="Daily Time Tracker", font=("Times", 20), fg=textColor, bg=backgroundColor).place(relx=0.6, rely=0.15, anchor='se')
+label_appname = Label(window, text="Easy Time Tracker", font=("Times", 20), fg=textColor, bg=backgroundColor).place(relx=0.6, rely=0.15, anchor='se')
 Time = time.strftime("%a: %d/%m/%Y")
 Time = Label(window, text=Time, font=("Times", 20), fg=textColor, bg=backgroundColor).place(relx=0.9, rely=0.15, anchor='se')
 
