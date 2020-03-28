@@ -19,12 +19,6 @@ textColor = '#7F8798' #'#4E5C75'
 
 # ================== Functions =======================
 
-def quit():
-    quit = messagebox.askyesno ("Time Tracker", "Are you sure you want to quit?")
-    if quit > 0:
-        window.destroy()
-        return
-
 def clear():
     task.delete(0,END)
     start.delete(0,END)
@@ -81,8 +75,11 @@ def exportData():
     backend_functions.export_all()
 
 def closeWindow():
-    backend_functions.export_all()
-    window.destroy()
+        quit = messagebox.askyesno ("Time Tracker", "Are you sure you want to quit?")
+        if quit > 0:
+            backend_functions.export_all()
+            window.destroy()
+        return
 
 
 # ===================== FrontEnd / Window Configuration =====================
