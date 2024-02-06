@@ -8,6 +8,7 @@ from tkinter import ttk
 import backend_functions
 from getpass import getpass
 import time
+from tkinter import font
 
 # ============== Global Variables ==================
 
@@ -87,11 +88,13 @@ def closeWindow():
 
 
 window = Tk()
-window.geometry("800x400")
+window.geometry("900x600")
 window.title("TimeTracker")
 window.config(bg=backgroundColor)
 window.resizable(False, False)
 window.protocol('WM_DELETE_WINDOW', closeWindow)
+icon = Image("photo", file="./images/icon.png")
+window.call('wm','iconphoto', window._w, icon)
 
 task = StringVar()
 start = StringVar()
@@ -124,14 +127,14 @@ label_note = Label(window, text="Note", font=("Times", 15), fg=textColor, bg=bac
 note = Entry(window, font=("Times", 15), background=labelTextColor, foreground=textColor, highlightthickness=0)
 note.place(relx=0.35, rely=0.65, anchor='se')
 
-btnAdd = Button(window, text='Add', highlightbackground=backgroundColor, padx=1, pady=1, width=10, command=addData).place(relx=0.14, rely=0.8, anchor='se')
-clear_data = Button(window, text="Clear", highlightbackground=backgroundColor, padx=1, pady=1, width=10, command=clear).place(relx=0.27, rely=0.8, anchor='se')
-search = Button(window, text="Search", highlightbackground=backgroundColor, padx=1, pady=1, width=10, command=searchData).place(relx=0.4, rely=0.8, anchor='se')
+btnAdd = Button(window, text='Add', highlightbackground=backgroundColor, padx=1, pady=1, width=7, command=addData).place(relx=0.15, rely=0.8, anchor='se')
+clear_data = Button(window, text="Clear", highlightbackground=backgroundColor, padx=1, pady=1, width=7, command=clear).place(relx=0.28, rely=0.8, anchor='se')
+search = Button(window, text="Search", highlightbackground=backgroundColor, padx=1, pady=1, width=7, command=searchData).place(relx=0.4, rely=0.8, anchor='se')
 export_CSV = Button(window, text="Export", highlightbackground=backgroundColor, padx=1, pady=1, width=10, command=exportData).place(relx=0.9, rely=0.9, anchor='se')
-delete = Button(window, text="Delete Entry", highlightbackground=backgroundColor, padx=1, pady=1, width=10, command=deleteData).place(relx=0.77, rely=0.9, anchor='se')
+delete = Button(window, text="Delete Entry", highlightbackground=backgroundColor, padx=1, pady=1, width=10, command=deleteData).place(relx=0.75, rely=0.9, anchor='se')
 
 
-listbox = Listbox(window, background=backgroundColor, bd=1, font="Times", fg=textColor, selectbackground=backgroundColor, highlightcolor="Red", relief=FLAT, height=13, width=50)
+listbox = Listbox(window, background=backgroundColor, bd=1, font=font.Font(family="Times", size=17), fg=textColor, selectbackground=backgroundColor, highlightcolor="Red", relief=FLAT, height=15, width=50)
 listbox.bind('<<ListboxSelect>>', record)
 listbox.place(relx=0.9, rely=0.8, anchor='se')
 
